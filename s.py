@@ -9,7 +9,7 @@ st.markdown("Simulez la production, le rendement et l’injection selon vos choi
 
 # CHOIX DE LA VILLE
 ville = st.selectbox(
-    "🏙️ Choisissez la ville",
+    " Choisissez la ville",
     ["Marseille", "Lyon", "Toulouse", "Bordeaux", "Nantes",
      "Paris", "Strasbourg", "Lille", "Metz", "Colmar", "Nice", "Montpellier"]
 )
@@ -33,9 +33,9 @@ irradiation_par_ville = {
 irradiation_ville = irradiation_par_ville[ville]
 
 # ENTRÉES UTILISATEUR
-panneau = st.selectbox("🧱 Type de panneau solaire", ["Monocristallin", "Polycristallin", "Amorphe", "Hétérojonction", "Bifacial"])
+panneau = st.selectbox(" Type de panneau solaire", ["Monocristallin", "Polycristallin", "Amorphe", "Hétérojonction", "Bifacial"])
 meteo = st.radio("🌦️ Conditions météorologiques", ["Ensoleillé", "Nuageux", "Pluvieux"])
-nb_panneaux = st.slider("🔢 Nombre de panneaux", 0, 25, 20)
+nb_panneaux = st.slider(" Nombre de panneaux", 0, 25, 20)
 
 # DONNÉES DE BASE
 surface_par_module = 1.7  # m²
@@ -76,7 +76,7 @@ reprise = max(0, conso_batiment - autoconso)
 
 # AFFICHAGE DES RÉSULTATS
 st.subheader(f"{emoji_meteo} Résultats de simulation")
-st.markdown(f"📍 **Ville sélectionnée : `{ville}` – Irradiation : `{irradiation_ville} kWh/m²/an`**")
+st.markdown(f" **Ville sélectionnée : `{ville}` – Irradiation : `{irradiation_ville} kWh/m²/an`**")
 
 col1, col2 = st.columns(2)
 col1.metric("Production estimée", f"{production:.0f} kWh/an")
@@ -86,10 +86,10 @@ col1, col2 = st.columns(2)
 col1.metric("Production par surface", f"{efficacite:.1f} kWh/m²/an")
 col2.metric("Coût estimé panneaux", f"{cout_total:,.0f} €")
 
-st.markdown(f"📌 **Rendement du panneau _{panneau}_ : `{rendement:.1f}%`**")
+st.markdown(f" **Rendement du panneau _{panneau}_ : `{rendement:.1f}%`**")
 
 # GRAPHIQUE RÉPARTITION ÉNERGIE
-st.subheader("⚡ Répartition de l’énergie")
+st.subheader(" Répartition de l’énergie")
 
 fig1, ax1 = plt.subplots()
 labels = ["Autoconsommée", "Injectée au réseau", "Reprise réseau"]
